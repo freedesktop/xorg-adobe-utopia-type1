@@ -26,32 +26,20 @@ AC_INIT(font-adobe-utopia-type1, [1.0.1], [https://bugs.freedesktop.org/enter_bu
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
 
-# Require xorg-macros: XORG_RELEASE_VERSION XORG_CHANGELOG
-m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.2 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.2)
+# Require xorg-macros: XORG_DEFAULT_OPTIONS
+m4_ifndef([XORG_MACROS_VERSION],
+	  [m4_fatal([must install xorg-macros 1.3 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.3)
+XORG_DEFAULT_OPTIONS
 
 AC_PROG_INSTALL
 
-AC_PATH_PROG(MKFONTSCALE, mkfontscale)
-if test x"$MKFONTSCALE" = x; then
-	AC_MSG_ERROR([mkfontscale is required to build adobe-utopia-type1 fonts.])
-fi
-AC_PATH_PROG(MKFONTDIR, mkfontdir)
-if test x"$MKFONTDIR" = x; then
-	AC_MSG_ERROR([mkfontdir is required to build adobe-utopia-type1 fonts.])
-fi
-AC_PATH_PROG(FCCACHE, fc-cache)
+# Require X.Org's font util macros 1.1 or later
+m4_ifndef([XORG_FONT_MACROS_VERSION],
+	  [m4_fatal([must install X.Org font-util 1.1 or later before running autoconf/autogen])])
+XORG_FONT_MACROS_VERSION(1.1)
 
-m4_ifdef([AS_HELP_STRING], , [m4_define([AS_HELP_STRING], m4_defn([AC_HELP_STRING]))])
-
-DEFAULT_FONTDIR=${libdir}/X11/fonts/Type1
-AC_ARG_WITH(fontdir,
-	AS_HELP_STRING([--with-fontdir=FONTDIR], [Path to install fonts]),
-	[FONTDIR="$withval"],
-	[FONTDIR="$DEFAULT_FONTDIR"])
-AC_SUBST(FONTDIR)
-
-XORG_RELEASE_VERSION
-XORG_CHANGELOG
+XORG_FONTDIR([Type1])
+XORG_FONT_SCALED_UTILS
 
 AC_OUTPUT([Makefile])
