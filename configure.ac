@@ -26,7 +26,6 @@ AC_INIT([font-adobe-utopia-type1], [1.0.4],
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         [font-adobe-utopia-type1])
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
-AM_MAINTAINER_MODE
 
 # Require xorg-macros: XORG_DEFAULT_OPTIONS
 m4_ifndef([XORG_MACROS_VERSION],
