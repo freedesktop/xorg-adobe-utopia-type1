@@ -27,23 +27,15 @@ Adobe Systems Incorporated
 All questions regarding this software should be directed at the
 Xorg mailing list:
 
-        http://lists.freedesktop.org/mailman/listinfo/xorg
-
-Please submit bug reports to the Xorg bugzilla:
-
-        https://bugs.freedesktop.org/enter_bug.cgi?product=xorg
+  https://lists.x.org/mailman/listinfo/xorg
 
 The master development code repository can be found at:
 
-        git://anongit.freedesktop.org/git/xorg/font/adobe-utopia-type1
+  https://gitlab.freedesktop.org/xorg/font/adobe-utopia-type1
 
-        http://cgit.freedesktop.org/xorg/font/adobe-utopia-type1
+Please submit bug reports and requests to merge patches there.
 
 For patch submission instructions, see:
 
-	http://www.x.org/wiki/Development/Documentation/SubmittingPatches
-
-For more information on the git code manager, see:
-
-        http://wiki.x.org/wiki/GitPage
+  https://www.x.org/wiki/Development/Documentation/SubmittingPatches
 
